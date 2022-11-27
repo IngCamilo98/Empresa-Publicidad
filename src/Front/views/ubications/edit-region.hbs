@@ -1,0 +1,26 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Region</h3>
+        </div>
+        <div class="card-body">
+            <form action="/ubications/edit-region/{{region._id}}?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+                    <input type="text" name="region" class="form-control" value="{{region.region}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="pais" class="form-control" value="{{region.pais}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ciudad" class="form-control" value="{{region.ciudad}}">
+                </div>                                            
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                        Actualizar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

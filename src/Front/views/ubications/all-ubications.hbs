@@ -1,0 +1,37 @@
+<table class="table table-primary table-bordered">
+    <thead class="table-warning">
+        <tr>
+            <th scope="col">Identificador</th>
+            <th scope="col">Región</th>
+            <th scope="col">Pais</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each regions}}
+        <tr>
+            <th scope="row">{{_id}}</th>
+            <td>{{region}}</td>
+            <td>{{pais}}</td>
+            <td>{{ciudad}}</td>
+            <td>
+                <form action="/ubications/edit/{{_id}}">
+                    <button type="submit" class="btn btn-success btn-block btn-sm">
+                        Editar
+                    </button>
+                </form>                
+            </td>
+            <td>
+                <form action="/ubications/delete/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

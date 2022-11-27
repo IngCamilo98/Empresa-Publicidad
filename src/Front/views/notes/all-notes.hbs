@@ -1,0 +1,58 @@
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-success" type="button">Button</button>
+  </div>
+  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+</div>
+
+
+<table class="table table-primary table-bordered">
+    <thead class="table-warning">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Identificador</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Email</th>
+            <th scope="col">Compañia</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each notes}}
+        <tr>
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                    <label class="form-check-label" for="flexCheckIndeterminate">
+                    </label>
+                </div>
+            </td>
+            <th scope="row">{{_id}}</th>
+            <td>{{nombre}}</td>
+            <td>{{apellido}}</td>
+            <td>{{cargo}}</td>
+            <td>{{email}}</td>
+            <td>{{compania}}</td>
+            <!--<td><a href="/notes/edit/{{_id}}"><i style="background:White">Edit</i></a></td>-->
+            <td>
+                <form action="/notes/edit/{{_id}}">
+                    <button type="submit" class="btn btn-success btn-block btn-sm">
+                        Editar
+                    </button>
+                </form>
+            </td>
+            <td>
+                <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger btn-block btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
